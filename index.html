@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClaudeCodeChat - Web Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .card h2 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .success-badge {
+            background: #10b981;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 20px auto;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+        }
+
+        .button:active {
+            transform: scale(0.98);
+        }
+
+        .info {
+            text-align: center;
+            color: #666;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        .emoji {
+            font-size: 3em;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 ClaudeCodeChat</h1>
+        <p class="subtitle">Edit dari HP & Tunneling Berhasil!</p>
+
+        <div class="success-badge">
+            ✓ Koneksi Berhasil
+        </div>
+
+        <div class="card">
+            <h2>📱 Diakses dari HP</h2>
+            <p>Aplikasi ini di-edit dari chat Claude menggunakan HP, lalu di-deploy dan bisa diakses melalui tunnel!</p>
+        </div>
+
+        <div class="card">
+            <h2>⚡ Teknologi</h2>
+            <p>HTML5, CSS3, Python HTTP Server, Cloudflare Tunnel</p>
+        </div>
+
+        <div class="card">
+            <h2>🎯 Status</h2>
+            <p id="status">Server berjalan di Claude Code environment</p>
+            <p id="time" style="margin-top: 10px; font-weight: bold;"></p>
+        </div>
+
+        <button class="button" onclick="updateStatus()">
+            Refresh Status
+        </button>
+
+        <p class="info">Dibuat dengan Claude Code • 2025-11-17</p>
+    </div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('time').textContent =
+                'Waktu: ' + now.toLocaleString('id-ID');
+        }
+
+        function updateStatus() {
+            const status = document.getElementById('status');
+            status.textContent = 'Status di-refresh! Server aktif ✓';
+            setTimeout(() => {
+                status.textContent = 'Server berjalan di Claude Code environment';
+            }, 2000);
+        }
+
+        // Update time setiap detik
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
